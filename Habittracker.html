@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Habit Tracker</title>
+    <link rel="icon" type="image/x-icon" href="calendar.png" />
+    <link
+      href="https://fonts.cdnfonts.com/css/ncl-aekabih-muskey"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1 id="title">Month</h1>
+    <h2 id="subtitle">Monthly Habit Tracker</h2>
+
+    <div id="CalendarContainer">
+      <div id="CalendarDiv">
+        <div id="CalendarHeading">
+          <p id="habitTracker">My New Habit</p>
+          <p id="totalDays">0/31</p>
+        </div>
+        <div id="CalendarContent">
+          <div id="tracker">
+            <div class="days">
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+            </div>
+            <div class="days">
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+            </div>
+            <div class="days">
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+            </div>
+            <div class="days">
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+            </div>
+            <div class="days">
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+                <div class="day">1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="resetButton">Reset Button</button>
+  </body>
+  <style>
+    body{
+      background-color: rgb(158, 197, 229);
+      text-align: center;
+      font-family: 'NCL Aekabih Muskey', sans-serif;
+    }
+    #title{
+      line-height: 10px;
+      margin-top: 100px;
+    }
+    #subtitle{
+      opacity: 0.7;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    #CalendarContainer{
+      display: flex;
+      justify-content: center;
+    }
+    #CalendarDiv{
+      margin:auto;
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px 10px 20px 20px;
+      text-align: center;
+      align-content: center;
+    }
+    #CalendarHeading{
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px;
+      border-radius: 10px 10px 0px 0px;
+      background-color: rgb(86, 131, 230);
+      border: 2px solid black;
+      font-size: 20px;
+      line-height: 0px;
+    }
+    #CalendarContent{
+      padding: 20px;
+      border: 2px solid black;
+    }
+    .days{
+      display: flex;
+    }
+    .day{
+      width: 30px;
+      padding: 10px;
+      font-size: 15px;
+      text-align: center;
+      border: 2px solid black;
+      margin: 3px;
+      background-color: rgb(86, 131, 230);
+      border-radius: 20px;
+    }
+  </style>
+</html>
