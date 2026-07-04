@@ -7,6 +7,8 @@
       href="https://fonts.cdnfonts.com/css/ncl-aekabih-muskey"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css">
+
   </head>
   <body>
     <h1 id="title">Month</h1>
@@ -70,129 +72,7 @@
       </div>
     </div>
     <button id="resetButton">Reset Button</button>
+        <script src="script.js"></script>
   </body>
-  <style>
-    body{
-      background-color: rgb(158, 197, 229);
-      text-align: center;
-      font-family: 'NCL Aekabih Muskey', sans-serif;
-    }
-    #title{
-      line-height: 10px;
-      margin-top: 100px;
-    }
-    #subtitle{
-      opacity: 0.7;
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-    #CalendarContainer{
-      display: flex;
-      justify-content: center;
-    }
-    #CalendarDiv{
-      margin:auto;
-      background-color: rgb(255, 255, 255);
-      border-radius: 10px 10px 20px 20px;
-      text-align: center;
-      align-content: center;
-    }
-    #CalendarHeading{
-      display: flex;
-      justify-content: space-between;
-      padding: 0px 20px;
-      border-radius: 10px 10px 0px 0px;
-      background-color: rgb(86, 131, 230);
-      border: 2px solid black;
-      font-size: 20px;
-      line-height: 0px;
-    }
-    #CalendarContent{
-      padding: 20px;
-      border: 2px solid black;
-    }
-    .days{
-      display: flex;
-    }
-    .day{
-      width: 30px;
-      padding: 10px;
-      font-size: 15px;
-      text-align: center;
-      border: 2px solid black;
-      margin: 3px;
-      background-color: rgb(86, 131, 230);
-      border-radius: 20px;
-    }
-  </style>
-  
-  <script>
-    var date = new Date();
-    console.log(date);
 
-    var currentMonth = date.getMonth();
-    var currentYear = date.getFullYear();
-    var currentDay = date.getDay();
-    var currentDate = date.getDate();
-
-    console.log(currentMonth);
-    console.log(currentYear); 
-    console.log(currentDay);
-    console.log(currentDate);
-
-    var monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
-  
-    var title=document.getElementById("title");
-    title.innerHTML= monthNames[currentMonth];
-
-    var habitTitle=document.getElementById("habitTitle");
-    habitTitle.onclick=function(){
-      let habits=prompt("Whats your habit?",habitTitle.innerHTML);
-      if (habits.length==0){
-        habitTitle.innerHTML="Click to set your habit";
-      }
-      else{
-        habitTitle.innerHTML=habits;
-      }
-    }
-    var daysinthemonthlist=[31,28,31,30,31,30,31,30,31,30,31,30];
-    var daysinthismonth=daysinthemonthlist[currentMonth];
-
-    var dayscomplete=0;
-    var totalDays=document.getElementById("totalDays");
-
-    var dayCount=0;
-    var rowCount=0;
-    var days=document.getElementsByClassName("days");
-    for(var i=0;i<days.length;i++){
-      var day=days[rowCount].getElementsByClassName("day");
-      for(var j=0;j<day.length;j++){
-        day[j].setAttribute("style","border:2px solid black");
-      
-
-      if(dayCount<daysinthismonth){
-        day[j].innerHTML=dayCount+1;
-        day[j].setAttribute("id","day"+(dayCount+1));
-        dayCount++;
-      }else{
-        day[j].innerHTML="";
-        day[j].setAttribute("style","background-color:white");
-      }
-    }
-    rowCount++;
-    }  
-  </script>
 </html>
