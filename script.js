@@ -39,11 +39,12 @@
         habitTitle.innerHTML=habits;
       }
     }
-    var daysinthemonthlist=[31,28,31,30,31,30,31,30,31,30,31,30];
+    var daysinthemonthlist=[31,28,31,30,31,30,31,31,30,31,30,31];
     var daysinthismonth=daysinthemonthlist[currentMonth];
 
-    var dayscomplete=0;
+    var dayscompleted=0;
     var totalDays=document.getElementById("totalDays");
+    totalDays.innerHTML="/0"+daysinthismonth;
 
     var dayCount=0;
     var rowCount=0;
@@ -51,7 +52,10 @@
     for(var i=0;i<days.length;i++){
       var day=days[rowCount].getElementsByClassName("day");
       for(var j=0;j<day.length;j++){
+       if(dayCount==currentDate-1){
+        day[j].setAttribute("style","color:rgb(102, 153, 219);");
         day[j].setAttribute("style","border:2px solid black");
+       }
       
 
       if(dayCount<daysinthismonth){
