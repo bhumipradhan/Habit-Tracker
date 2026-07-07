@@ -44,7 +44,7 @@
 
     var dayscompleted=0;
     var totalDays=document.getElementById("totalDays");
-    totalDays.innerHTML="/0"+daysinthismonth;
+    totalDays.innerHTML="0/"+daysinthismonth;
 
     var dayCount=0;
     var rowCount=0;
@@ -69,3 +69,100 @@
     }
     rowCount++;
     }  
+
+for (var i = 0; i < dayCount; i++) {
+
+    var storageKey = (currentMonth + 1) + "-" + (i + 1) + "-" + currentYear;
+
+    var value = localStorage.getItem(storageKey);
+
+    if (value === null) {
+
+        localStorage.setItem(storageKey, "false");
+
+    } else if (value === "true") {
+
+        dayscompleted++;
+    }
+}
+
+totalDays.innerHTML = dayscompleted + "/" + daysinthismonth;
+
+
+/* ---------- UPDATE CALENDAR ---------- */
+
+for (var i = 0; i < currentDate; i++) {
+
+    var storageKey = (currentMonth + 1) + "-" + (i + 1) + "-" + currentYear;
+
+    var chosenDay = localStorage.getItem(storageKey);
+
+    var chosenDayDiv = document.getElementById("day" + (i + 1));
+
+    if (chosenDay === "true") {
+
+        chosenDayDiv.style.backgroundColor = "blue";
+
+    } else {
+
+        chosenDayDiv.style.backgroundColor = "white";
+    }
+}
+
+
+/* ---------- CLICK EVENT ---------- */
+
+var dayDivs = document.querySelectorAll(".day");
+
+for (var i = 0; i < currentDate; i++) {
+
+    dayDivs[i].onclick = function (e) {
+
+        if (e.target.innerHTML === "") return;
+
+        var num = e.target.innerHTML;
+
+        var storageKey =
+            (currentMonth + 1) + "-" + num + "-" + currentYear;
+
+        if (localStorage.getItem(storageKey) === "false") {
+
+            e.target.style.backgroundColor = "blue";
+            localStorage.setItem(storageKey, "true");
+            dayscompleted++;
+
+        } else {
+
+            e.target.style.backgroundColor = "white";
+            localStorage.setItem(storageKey, "false");
+            dayscompleted--;
+        }
+
+        totalDays.innerHTML = dayscompleted + "/" + daysinthismonth;
+
+        if (dayscompleted === currentDate) {
+            alert("Great Progress!");
+        }
+    };
+}
+
+
+/* ---------- RESET BUTTON ---------- */
+
+var resetButton = document.getElementById("resetButton");
+
+resetButton.onclick = function () {
+
+    for (var i = 0; i < dayCount; i++) {
+
+        var storageKey =
+            (currentMonth + 1) + "-" + (i + 1) + "-" + currentYear;
+
+        localStorage.setItem(storageKey, "false");
+
+        document.getElementById("day" + (i + 1)).style.backgroundColor = "white";
+    }
+
+    dayscompleted = 0;
+    totalDays.innerHTML = "0/" + daysinthismonth;
+};
